@@ -78,7 +78,7 @@ namespace AdoHomework
         {
             try
             {
-                string qry = " update student set name=@nm,city=@city,percentage=@per where rollno=@rn";
+                string qry = " update student set stdname=@nm,city=@city,stdpercentage=@per where rollno=@rn";
                 cmd = new SqlCommand(qry, con);
                 cmd.Parameters.AddWithValue("@nm", txtname.Text);
                 cmd.Parameters.AddWithValue("@city", txtcity.Text);
@@ -105,7 +105,7 @@ namespace AdoHomework
         {
             try
             {
-                string qry = " delate from student where rollno=@rn";
+                string qry = " delete from student where rollno=@rn";
                 cmd = new SqlCommand(qry, con); 
                 cmd.Parameters.AddWithValue("@rn", Convert.ToInt32(txtrollno.Text));
                 con.Open();
@@ -139,9 +139,9 @@ namespace AdoHomework
                 {
                     while(dr.Read())
                     {
-                        txtname.Text = dr["name"].ToString();
+                        txtname.Text = dr["stdname"].ToString();
                         txtcity.Text = dr["city"].ToString();
-                        txtpercentage.Text = dr["percentage"].ToString();
+                        txtpercentage.Text = dr["stdpercentage"].ToString();
                     }
                 }
                 else
